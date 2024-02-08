@@ -8,11 +8,16 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        with:
+          egress-policy: audit
+
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Run Revive Action by pulling pre-built image
-        uses: docker://morphy/revive-action:v2
+        uses: docker://morphy/revive-action:v2@sha256:087d4e61077087755711ab7e9fae3cc899b7bb07ff8f6a30c3dfb240b1620ae8
         with:
           config: revive.toml
           # Exclude patterns, separated by semicolons (optional)

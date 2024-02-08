@@ -17,13 +17,18 @@ jobs:
     permissions:
       packages: write
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        with:
+          egress-policy: audit
+
       - name: "Checkout Repo"
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: ${{ github.event.inputs.branchName }}
 
       - name: Install The Latest Release Version of Zarf
-        uses: defenseunicorns/setup-zarf@main
+        uses: defenseunicorns/setup-zarf@cf1d743b3a84098fdd1872ea55a80ade3c31cd76 # main
 
       - name: "Login to GHCR"
         uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
