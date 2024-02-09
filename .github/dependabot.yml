@@ -1,0 +1,51 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /docs-website
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /docs-website/plugins/custom-loaders
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /examples/component-webhooks
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /examples/dos-games/image
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: cargo
+    directory: /src/injector
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /src/test/packages/04-file-folders-templating-sbom/include-files
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /src/test/packages/04-file-folders-templating-sbom
+    schedule:
+      interval: daily
